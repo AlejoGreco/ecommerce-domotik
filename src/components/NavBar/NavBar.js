@@ -1,37 +1,21 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import './NavBar.scss';
+import { CartWidget } from '../CartWidget/CartWidget';
 
 export const NavBar = () => {
     
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" className="miNavBar">
-        <Toolbar>
-            <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            >
-            <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Domotik - Plataforma
-            </Typography>
-            <Button color="inherit">Iluminación</Button>
-            <Button color="inherit">Accesos</Button>
-            <Button color="inherit">Climatización</Button>
-            <Button color="inherit">Piscinas</Button>
-        </Toolbar>
-        </AppBar>
-    </Box>
+    return (
+        <>
+            <nav className="my-nav">
+                <h1>Domotik - Plataforma</h1>
+                <ul className="nav-list">
+                    <li>Accesos</li>
+                    <li>Iluminación</li>
+                    <li>Climatización</li>
+                    <li>Piscinas</li>
+                </ul>
+                <CartWidget />
+            </nav>
+        </>
     );
 } 
