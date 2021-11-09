@@ -1,0 +1,38 @@
+
+.item-count-container {
+    background-color: #444;
+    border-radius: .7rem;
+    text-align: center;
+    padding: .7rem;
+    width: 9rem;
+    
+
+    .item-count-controlers {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: .7rem;
+
+        span {
+            font-size: 1.2rem;
+            color: #ffc107;
+        }
+
+        span:first-child, span:last-child{
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color .15s ease-in-out;
+            width: 1.75rem;
+        }
+
+        span:first-child:hover, span:last-child:hover{
+            background-color: #666;
+        }
+
+    }
+
+    .button-custom {
+        border-radius: .5rem;
+        width: 100%;
+    }
+}
