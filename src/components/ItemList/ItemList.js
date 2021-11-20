@@ -6,9 +6,7 @@ export const ItemList = ({items}) => {
     return (
         <section className="list-container">
             {
-                items.map( producto => {
-                    return <Item key={producto.id} {...producto} />
-                })
+                items.map( producto => <Item key={producto.id} {...producto} /> )
             }
         </section>
     )
