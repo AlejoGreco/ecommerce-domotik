@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Button from 'react-bootstrap/Button';
+import {Button} from 'react-bootstrap';
 import './ItemCount.scss';
 
 export const ItemCount = ({stock}) => {
@@ -20,11 +20,12 @@ export const ItemCount = ({stock}) => {
     return (
         <div className="item-count-container">
             <div className="item-count-controlers">
-                <span onClick={restCountHandler}>-</span>
-                <span>{count}</span>
-                <span onClick={addCountHandler}>+</span>
+                <span>Cantidad: {count}</span>
+                <div>
+                    <Button variant="outline-warning" onClick={restCountHandler}>-</Button>
+                    <Button variant="warning" onClick={addCountHandler}>+</Button>
+                </div>
             </div>
-            <Button variant="outline-warning" className="button-custom">Agregar</Button>
         </div>
     );
 }

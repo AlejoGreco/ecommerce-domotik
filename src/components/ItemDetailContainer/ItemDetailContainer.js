@@ -25,14 +25,10 @@ export const ItemDetailContainer = () => {
 
     return (
         <article className="detail-container">
-            <h2>Info de producto</h2>
-            <hr/>
             {
                 loading 
-                    ?
-                        <h3>Cargando...</h3>
-                    :
-                        <ItemDetail {...item} />
+                    ? <h3>Cargando...</h3>
+                    : <ItemDetail {...item} />
             }
         </article>
     )

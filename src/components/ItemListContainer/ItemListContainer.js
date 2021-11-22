@@ -6,14 +6,19 @@ import './ItemListContainer.scss';
 const  ItemListContainer = ({greeting}) => {
 
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => { 
+        setLoading(true);
         cargarProductos()
             .then(productos => {
                 setItems(productos);
             })
             .catch(err => {
                 console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
             });
 
     },[]);
@@ -22,7 +27,13 @@ const  ItemListContainer = ({greeting}) => {
         <div className="greeting-container">
             <h2>{greeting}</h2>
             <hr/>
-            <ItemList items={items} />
+            {
+                loading
+                    ?
+                        <h3>Cargando...</h3>
+                    :
+                        <ItemList items={items} />
+            }
         </div>
     )
 }

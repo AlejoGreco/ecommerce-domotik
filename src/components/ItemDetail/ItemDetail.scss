@@ -1,0 +1,41 @@
+.detail-item {
+    display: flex;
+    padding: 2rem;
+    margin: 1rem;
+    max-width: 50rem;
+    width: fit-content;
+    border-radius: 1.5rem;
+    background-color: #444;
+    color: #f5f5dc;
+
+    .img-detail-container {
+        border-radius: .5rem;
+        overflow: hidden;
+        min-width: 18rem;
+        
+        img {
+            width: 100%;
+        }
+    }
+
+    .detail-subcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 1.5rem;
+        padding-left: 1.5rem;
+        border-left: 1px solid orange;
+
+        .detail-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .principal-buttons{
+                margin-top: 1rem;
+                border-radius: .5rem;
+                width: 100%;
+            }
+        }
+    }
+}
