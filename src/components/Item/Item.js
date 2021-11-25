@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Item.scss';
 
 export const Item = ({id, nombre, precio, img}) => {
@@ -11,7 +12,7 @@ export const Item = ({id, nombre, precio, img}) => {
             <div className="my-card-text">
                 <h3>{nombre}</h3>
                 <p>Precio: $ {precio}</p>
-                <Button variant="outline-warning" className="button-edit">Ver mas</Button>
+                <Link to={`/item/${id}`}><Button variant="outline-warning" className="button-edit">Ver mas</Button></Link>
             </div>
         </div>
     )

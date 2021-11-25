@@ -17,6 +17,8 @@
         overflow: hidden;
         
         img {
+            object-fit: cover;
+            max-height: 18rem;
             width: 100%;
         }
     }
