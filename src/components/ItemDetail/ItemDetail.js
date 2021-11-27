@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button } from 'react-bootstrap';
 import './ItemDetail.scss'
 import { ItemCount } from '../ItemCount/ItemCount';
@@ -9,6 +9,7 @@ export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
     const navegador = useNavigate();
     const handleHome = () => { navegador("/") }
     const handleVolver = () => { navegador(-1) }
+    const [inCart, setInCart] = useState(false);
     
     return (
         <div className="detail-item">
@@ -25,11 +26,7 @@ export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
                     <p>{desc}</p>
                     <p>Precio: $ {precio}</p>
                 </div>
-                <div className="detail-buttons">
-                    <ItemCount stock={stock} />
-                    <Button variant="warning" className="principal-buttons">Comprar</Button>
-                    <Button variant="outline-warning" className="principal-buttons">Agregar al carrito</Button>
-                </div>
+                <ItemCount stock={stock} inCart={inCart} setInCart={setInCart}/>
             </div>
         </div>
     )
