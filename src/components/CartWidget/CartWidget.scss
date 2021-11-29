@@ -1,0 +1,18 @@
+.widget-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .widget-number {
+        background-color: red;
+        color: #FFF;
+        border-radius: .2rem;
+        width: 1rem;
+        text-align: center;
+        font-size: .8rem;
+        position: absolute;
+        left: -1rem;
+        top: -.5rem;
+    }
+    
+}

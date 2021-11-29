@@ -23,12 +23,22 @@ export const CartContextProvider = ({children}) => {
         return carrito.find(producto => producto.id === productId);
     }
 
+    const totalCount = () => {
+        return carrito.reduce((accu, p) => accu = accu + p.count, 0)
+    }
+
+    const totalPrice = () => {
+        return carrito.reduce((accu, p) => accu = accu + p.count * p.precio, 0)
+    }
+
     const values = {
         carrito,
         agregarAlCarrito,
         quitarDelCarrito,
         vaciarCarrito,
-        isInCart
+        isInCart,
+        totalCount,
+        totalPrice
     }
     return (
         <CartContext.Provider

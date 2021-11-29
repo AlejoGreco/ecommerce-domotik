@@ -1,0 +1,39 @@
+.cart-item {
+    display: grid;
+    grid-template-columns: 5rem auto 1fr;
+    grid-template-rows: 5rem;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid #BBB;
+
+    img {
+        width: 4.5rem;
+        object-fit: cover;
+    }
+
+    .cart-info {
+        margin-left: 1rem;
+
+        h4 {
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+    }
+
+    .cart-item-control {
+        justify-self: flex-end;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 12rem;
+
+        p {
+            margin: 0;
+        }
+
+    }
+}
