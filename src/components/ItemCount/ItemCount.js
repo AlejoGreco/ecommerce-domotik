@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './ItemCount.scss';
 
-export const ItemCount = ({stock, inCart, setInCart}) => {
-    const [count, setCount] = useState(1);
+export const ItemCount = ({stock, count, setCount, onAdd}) => {
 
     const addCountHandler = () => {
         if(count < stock){
@@ -18,42 +16,24 @@ export const ItemCount = ({stock, inCart, setInCart}) => {
         }      
     }
 
-    const onAdd = () => {
-        setInCart(true);
-    }
-
-
     return (
         <div className="item-count-container">
-            {
-                !inCart
-                ?   <>
-                        <div className="cantidad-controls-container">
-                            <div className="item-count-controlers">
-                                <span>Cantidad: {count}</span>
-                                <div>
-                                    <Button variant="outline-warning" onClick={restCountHandler}>-</Button>
-                                    <Button variant="warning" onClick={addCountHandler}>+</Button>
-                                </div>
-                            </div>
-                        </div>
-                        <Button 
-                            variant="warning" 
-                            className="principal-buttons"
-                            onClick={onAdd}
-                        >
-                            Agregar al carrito
-                        </Button>
-                    </>  
-                :   <Link to="/cart" className="link">
-                        <Button 
-                            variant="warning" 
-                            className="principal-buttons"
-                        >
-                            Finalizar compra
-                        </Button>
-                    </Link>    
-            }   
+            <div className="cantidad-controls-container">
+                <div className="item-count-controlers">
+                    <span>Cantidad: {count}</span>
+                    <div>
+                        <Button variant="outline-warning" onClick={restCountHandler}>-</Button>
+                        <Button variant="warning" onClick={addCountHandler}>+</Button>
+                    </div>
+                </div>
+            </div>
+            <Button 
+                variant="warning" 
+                className="principal-buttons"
+                onClick={onAdd}
+            >
+                Agregar al carrito
+            </Button>
         </div>
     );
 }

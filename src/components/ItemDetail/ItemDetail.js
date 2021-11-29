@@ -3,14 +3,30 @@ import { Button } from 'react-bootstrap';
 import './ItemDetail.scss'
 import { ItemCount } from '../ItemCount/ItemCount';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext/CartContext';
+
 
 export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
-    
     const navegador = useNavigate();
+    const [count, setCount] = useState(1);
+    const { agregarAlCarrito, isInCart} = useCartContext();
+
     const handleHome = () => { navegador("/") }
+
     const handleVolver = () => { navegador(-1) }
-    const [inCart, setInCart] = useState(false);
-    
+
+    const handleAgregar = () => {
+        agregarAlCarrito({
+            id,
+            nombre,
+            precio,
+            img,
+            count
+        })
+       
+    }
+
     return (
         <div className="detail-item">
             <div className="img-detail-container">
@@ -26,7 +42,11 @@ export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
                     <p>{desc}</p>
                     <p>Precio: $ {precio}</p>
                 </div>
-                <ItemCount stock={stock} inCart={inCart} setInCart={setInCart}/>
+                {
+                    !isInCart(id)
+                    ?   <ItemCount stock={stock} onAdd={ handleAgregar } count={count} setCount={ setCount }/>
+                    :   <Link to="/cart" className="btn btn-warning principal-buttons">Finalizar compra</Link> 
+                }
             </div>
         </div>
     )

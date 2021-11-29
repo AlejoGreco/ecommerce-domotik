@@ -27,6 +27,12 @@
         border-left: 1px solid orange;
         position: relative;
 
+        .principal-buttons{
+            margin-top: 1rem;
+            border-radius: .5rem;
+            width: 100%;
+        }
+
         .nav-buttons {
             display: flex;
             justify-content: space-between;
