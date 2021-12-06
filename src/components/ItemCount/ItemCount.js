@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from 'react-bootstrap';
 import './ItemCount.scss';
 
-export const ItemCount = ({stock, count, setCount, onAdd}) => {
+export const ItemCount = ({stock, count, setCount, onAdd, cartCount}) => {
 
     const addCountHandler = () => {
         if(count < stock){
@@ -21,6 +21,9 @@ export const ItemCount = ({stock, count, setCount, onAdd}) => {
             <div className="cantidad-controls-container">
                 <div className="item-count-controlers">
                     <span>Cantidad: {count}</span>
+                    {
+                        cartCount && <span>Items en carrito: {cartCount}</span>
+                    }
                     <div>
                         <Button variant="outline-warning" onClick={restCountHandler}>-</Button>
                         <Button variant="warning" onClick={addCountHandler}>+</Button>

@@ -20,7 +20,12 @@ export const CartContextProvider = ({children}) => {
     }
 
     const isInCart = productId => {
-        return carrito.find(producto => producto.id === productId);
+        const p = carrito.find(producto => producto.id === productId);
+        if(p){
+            console.log(p.count)
+            return p.count;
+        }
+        return 0;
     }
 
     const totalCount = () => {

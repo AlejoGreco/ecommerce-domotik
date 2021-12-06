@@ -1,7 +1,18 @@
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .widget-container {
     display: flex;
     align-items: center;
     position: relative;
+    transition: .4s ease-out all;
 
     .widget-number {
         background-color: red;

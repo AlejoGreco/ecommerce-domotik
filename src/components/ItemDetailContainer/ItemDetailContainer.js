@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { cargarProductos } from '../../aux/cargarProductos';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { Loader } from '../Loader/Loader';
 import './ItemDetailContainer.scss';
+
 
 export const ItemDetailContainer = () => {
 
@@ -28,7 +30,7 @@ export const ItemDetailContainer = () => {
         <article className="detail-container">
             {
                 loading 
-                    ? <h3>Cargando...</h3>
+                    ? <Loader />
                     : <ItemDetail {...item} />
             }
         </article>

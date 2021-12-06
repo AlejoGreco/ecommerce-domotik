@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { cargarProductos } from '../../aux/cargarProductos';
 import { ItemList } from '../ItemList/ItemList';
+import { Loader } from '../Loader/Loader'
 import './ItemListContainer.scss';
 
 const  ItemListContainer = ({greeting}) => {
@@ -34,7 +35,7 @@ const  ItemListContainer = ({greeting}) => {
             <hr/>
             {
                 loading
-                ?   <h3>Cargando...</h3>
+                ?   <Loader />
                 :   <ItemList items={items} />
             }
         </div>

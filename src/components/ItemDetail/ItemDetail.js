@@ -10,13 +10,14 @@ import { useCartContext } from '../../context/CartContext/CartContext';
 export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
     const navegador = useNavigate();
     const [count, setCount] = useState(1);
-    const { agregarAlCarrito, isInCart} = useCartContext();
+    const { agregarAlCarrito, isInCart } = useCartContext();
 
     const handleHome = () => { navegador("/") }
 
     const handleVolver = () => { navegador(-1) }
 
     const handleAgregar = () => {
+        setCount(1);
         agregarAlCarrito({
             id,
             nombre,
@@ -24,7 +25,6 @@ export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
             img,
             count
         })
-       
     }
 
     return (
@@ -43,9 +43,9 @@ export const ItemDetail = ({id, nombre, stock, precio, desc, img}) => {
                     <p>Precio: $ {precio}</p>
                 </div>
                 {
-                    !isInCart(id)
-                    ?   <ItemCount stock={stock} onAdd={ handleAgregar } count={count} setCount={ setCount }/>
-                    :   <Link to="/cart" className="btn btn-warning principal-buttons">Finalizar compra</Link> 
+                    isInCart(id) 
+                    ?   <Link to="/cart" className="btn btn-warning principal-buttons">Finalizar compra</Link>
+                    :   <ItemCount stock={stock} onAdd={ handleAgregar } count={count} setCount={ setCount }/>
                 }
             </div>
         </div>
