@@ -1,6 +1,7 @@
+import { doc, getDoc, collection } from '@firebase/firestore/lite';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
-import { cargarProductos } from '../../aux/cargarProductos';
+import { db } from '../../firebase/config';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { Loader } from '../Loader/Loader';
 import './ItemDetailContainer.scss';
@@ -14,9 +15,11 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        cargarProductos()
-            .then( productos => { 
-                setItem(productos.find(p => p.id === parseInt(id))) 
+        const collectionRef = collection(db, 'productos');
+        const detailRef = doc(collectionRef, id);
+        getDoc(detailRef)
+            .then(doc => {
+                setItem({id:doc.id, ...doc.data()})
             })
             .catch( err => { 
                 console.log(err)

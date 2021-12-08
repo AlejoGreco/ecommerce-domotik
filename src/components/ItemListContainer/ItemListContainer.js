@@ -1,9 +1,11 @@
+import { collection, getDocs, query, where } from '@firebase/firestore/lite';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
-import { cargarProductos } from '../../aux/cargarProductos';
+import { db } from '../../firebase/config';
 import { ItemList } from '../ItemList/ItemList';
-import { Loader } from '../Loader/Loader'
+import { Loader } from '../Loader/Loader';
 import './ItemListContainer.scss';
+
 
 const  ItemListContainer = ({greeting}) => {
 
@@ -13,12 +15,17 @@ const  ItemListContainer = ({greeting}) => {
 
     useEffect(() => { 
         setLoading(true);
-        cargarProductos()
-            .then(productos => {
-                if(!cat)
-                    setItems(productos);
-                else
-                    setItems(productos.filter(p => p.category === cat))
+        const collectionRef = collection(db, 'productos');
+        let q;
+        if(cat){
+            q = query(collectionRef, where('category', '==', cat));
+        }
+        else {
+            q = collectionRef;
+        } 
+        getDocs(q)
+            .then(snapshot => {
+                setItems(snapshot.docs.map( doc => ( {id:doc.id, ...doc.data() })) );
             })
             .catch(err => {
                 console.log(err);
