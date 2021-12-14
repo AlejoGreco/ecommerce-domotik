@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { Cart } from "./components/Cart/Cart"
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CartContextProvider } from './context/CartContext/CartContext';
+import { CheckOut } from './components/CheckOut/CheckOut';
 
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
                 <Route
                 path="/cart"
                 element={<Cart />}
+                ></Route>
+                <Route
+                path="/checkout"
+                element={<CheckOut />}
                 ></Route>
                 <Route
                     path="*"
