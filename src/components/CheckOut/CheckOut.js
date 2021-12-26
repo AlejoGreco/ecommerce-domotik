@@ -10,8 +10,7 @@ export const CheckOut = () => {
             {
                 carrito.length === 0
                 ?   <Navigate to="/" />
-                :   
-                    <Formulario />    
+                :   <Formulario />    
             }
         </>
     )

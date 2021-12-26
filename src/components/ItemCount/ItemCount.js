@@ -21,12 +21,10 @@ export const ItemCount = ({stock, count, setCount, onAdd, cartCount}) => {
             <div className="cantidad-controls-container">
                 <div className="item-count-controlers">
                     <span>Cantidad: {count}</span>
-                    {
-                        cartCount && <span>Items en carrito: {cartCount}</span>
-                    }
+                    <span>Stock: {stock}</span>
                     <div>
                         <Button variant="outline-warning" onClick={restCountHandler}>-</Button>
-                        <Button variant="warning" onClick={addCountHandler}>+</Button>
+                        <Button variant="warning" onClick={addCountHandler} disabled={stock === count ? true : false}>+</Button>
                     </div>
                 </div>
             </div>
@@ -34,6 +32,7 @@ export const ItemCount = ({stock, count, setCount, onAdd, cartCount}) => {
                 variant="warning" 
                 className="principal-buttons"
                 onClick={onAdd}
+                disabled={stock === count ? true : false}
             >
                 Agregar al carrito
             </Button>

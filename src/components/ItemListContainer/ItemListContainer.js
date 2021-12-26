@@ -38,7 +38,11 @@ const  ItemListContainer = ({greeting}) => {
 
     return (
         <div className="greeting-container">
-            <h2>{greeting}</h2>
+            {
+                !cat 
+                ?   <h2>{greeting}</h2>
+                :   <h2>{`Categoria ${cat.charAt(0).toLocaleUpperCase() + cat.slice(1)}`}</h2>
+            }
             <hr/>
             {
                 loading

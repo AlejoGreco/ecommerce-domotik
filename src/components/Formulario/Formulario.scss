@@ -15,10 +15,14 @@
         width: 80%;
         padding: 2.5rem 5rem;
     
+        button {
+            margin-top: .5rem;
+        }
         .form-item, button {
             width: 90%;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.6rem;
             text-align: center;
+            position: relative;
 
             input {
                 width: 100%;
@@ -26,6 +30,23 @@
                 border: none;
                 border-bottom: solid orange 1px;
                 outline: none;
+                
+            }
+
+            .error-msg {
+                position: absolute;
+                color: red;
+                font-size: smaller;
+                font-style: italic;
+            }
+
+            .invalid {
+                color: red;
+                border-bottom: solid red 1px;
+
+                &::placeholder {
+                    color: red;
+                }
             }
         }
     }

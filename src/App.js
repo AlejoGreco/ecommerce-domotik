@@ -12,34 +12,34 @@ function App() {
     return (
         <CartContextProvider>
             <BrowserRouter>
-            <NavBar />
-            <Routes>
-                <Route 
-                    path="/" 
-                    element={ <ItemListContainer greeting="Seccion X"/> }
-                ></Route>
-                <Route 
-                    path="/category/:cat" 
-                    element={ <ItemListContainer greeting="Categoria X"/> }
-                ></Route>
-                <Route
-                path="/item/:id"
-                element={ <ItemDetailContainer /> }
-                ></Route>
-                <Route
-                path="/cart"
-                element={<Cart />}
-                ></Route>
-                <Route
-                path="/checkout"
-                element={<CheckOut />}
-                ></Route>
-                <Route
-                    path="*"
-                    element={ <Navigate to="/" /> }
-                ></Route>
-            </Routes> 
-        </BrowserRouter>
+                <NavBar />
+                <Routes>
+                    <Route 
+                        path="/" 
+                        element={ <ItemListContainer greeting="Todos nuestros productos"/> }
+                    ></Route>
+                    <Route 
+                        path="/category/:cat" 
+                        element={ <ItemListContainer greeting="Categoria X"/> }
+                    ></Route>
+                    <Route
+                    path="/item/:id"
+                    element={ <ItemDetailContainer /> }
+                    ></Route>
+                    <Route
+                    path="/cart"
+                    element={<Cart />}
+                    ></Route>
+                    <Route
+                    path="/checkout"
+                    element={<CheckOut />}
+                    ></Route>
+                    <Route
+                        path="*"
+                        element={ <Navigate to="/" /> }
+                    ></Route>
+                </Routes> 
+            </BrowserRouter>
         </CartContextProvider>
     );
 }
