@@ -10,10 +10,10 @@ export const validarOrden = ({nombre, apellido, email, telefono}) => {
         if(apellido.length < 4 || apellido.length > 20)
             reject([2, 'Apellido invalido']);
 
-        if(email.length == 0 || !emailRegExp.test(email))
+        if(email.length === 0 || !emailRegExp.test(email))
             reject([3, 'Email invalido']);
         
-        if(telefono.length == 0 || !telRegExp.test(telefono))
+        if(telefono.length === 0 || !telRegExp.test(telefono))
             reject([4, 'Telefono invalido']);
         
         resolve([0, 'Validacion realizada correctamente']);

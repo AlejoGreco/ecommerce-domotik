@@ -6,6 +6,27 @@
     align-items: center;
     padding: .8rem 1.5rem;
 
+    @media (max-width: 768px){
+        padding: .8rem 0;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .hamb-icon {
+        display: none;
+        opacity: 0;
+        transition: all .5s;
+        margin-left: 1rem;
+
+        @media (max-width: 768px){
+            display: block;
+            opacity: 1;
+        }
+    }
+
     .link {
         color: #f5f5dc;
         text-decoration: none;
@@ -14,6 +35,10 @@
         &:hover {
             transform: scale(1.2);
         }
+    }
+
+    .show {
+        left: 0 !important;
     }
 
     .nav-list {
@@ -25,8 +50,27 @@
         padding: 0;
         margin: 0 2rem;
 
+        @media (max-width: 768px){
+            position: absolute;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 80%;
+            background-color: #555;
+            padding: 0 1rem;
+            margin: 0;
+            top: 64px;
+            left: -80%;
+            transition: .5s ease-in-out left;
+        }
+
         li {
             transition: .5s;
+
+            @media (max-width: 768px){
+                padding: .5rem 0;
+            }
         
             &:hover {
                 transform: scale(1.2);
@@ -41,6 +85,9 @@
         margin-right: 6rem;
         transition: .5s;
 
+        @media (max-width: 768px){
+            margin-right: 0;
+        }
         &:hover {
             transform: scale(1.1);
         }
